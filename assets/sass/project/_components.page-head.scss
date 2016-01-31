@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    #PAGE-HEAD
+\*------------------------------------*/
+
+.site-header{
+	padding: $inuit-base-spacing-unit 0 $inuit-base-spacing-unit/2 0;
+    margin-bottom:$inuit-base-spacing-unit/2;
+
+}
+
+.brand-logo{
+    @include media-query(palm){
+    margin: 0 auto;
+    display: block;
+    }
+}
