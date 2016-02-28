@@ -14,24 +14,15 @@ $theme_options = get_option('wps_prime_settings');
     # REMOVE PARENT SCRIPTS & STYLES
 ****************************************/
 
-// Deregister parent main site script.
-add_action( 'wp_enqueue_scripts', 'remove_scripts', 100 );
-function remove_scripts() {
-
-    // Deregister Parent theme Script.
-    wp_dequeue_script('site_js');  
-
-}
-
 // Remove parent style and add child style.
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
 
 	// Remove main stylesheet.
-    wp_deregister_style( 'wps_prime-style' );
+  wp_deregister_style( 'wps_prime-style' );
 
-    // Add child style.
-    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css');   
+  // Add child style.
+  wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css');   
     
 }
 
@@ -39,15 +30,32 @@ function theme_enqueue_styles() {
     #ADD CHILD THEME SCRIPTS
 ****************************************/
 
+/**
+
 // Add child Scripts.
 add_action( 'wp_enqueue_scripts', 'add_child_scripts', 20 );
-
 function add_child_scripts() {
 
   // Site scripts init.
   wp_enqueue_script( 'theme_scripts', get_stylesheet_directory_uri().'/assets/js/min/theme.min.js', array(), '1.0.1', true );
 
 }
+
+*/
+
+/**
+ * Two build in "hot swap" navigation modules
+ *
+ * You can activate one of them by uncommnet
+ * Also see the style.scss to uncomment the css needed to function 
+ *
+ * Of course you can also delete them!
+ */
+
+// require get_stylesheet_directory() . '/theme-modules/wps-menu-one/wps-module-mo-init.php';
+// require get_stylesheet_directory() . '/theme-modules/wps-menu-two/wps-module-mt-init.php';
+
+
 
 /* Setup Child Theme */
 add_action( 'after_setup_theme', 'child_theme_setup', 11);
@@ -75,6 +83,58 @@ function child_theme_setup() {
    */
 
   /* Main Navigation adjustments css */
-  add_filter('main_nav_class','theme_main_navigation_extra_class');
+  // add_filter('main_nav_class','theme_main_navigation_extra_class');
 
 }
+
+/**
+*  Add site page content a backgroud image
+*  unsing page featured image
+*
+*/
+
+// Add page background image.
+//add_action('wp_head','feat_img_content');
+
+// Add nav class
+//add_filter('site_header_class','header_nav_bg_modifier');
+
+
+/**
+* 
+* If has featured image, add it as background to .site-content ON PAGES
+*
+
+function feat_img_content(){
+  global $post;
+
+  if(is_404() || is_single()){ return; }
+
+  $thumb_id = get_post_thumbnail_id($post->ID) ? get_post_thumbnail_id($post->ID) : '';
+
+  if(!$thumb_id){return;}
+
+  $large_image_url = wp_get_attachment_image_src(  $thumb_id , 'full' );
+  
+ 
+  echo '<style type="text/css" media="screen">.site-pre-content{background:url(\''. $large_image_url[0] .'\') center center no-repeat;}.site-header{position:absolute; width: 100%;}</style>';
+
+}
+
+
+function header_nav_bg_modifier($classes){  
+  global $post;
+
+  if(is_404() || is_single()){ return ; }
+
+  $thumb_id = get_post_thumbnail_id($post->ID) ? get_post_thumbnail_id($post->ID) : '';
+
+  if(!$thumb_id){return;}
+
+  $classes[] = 'bg--opaq'; 
+
+  return $classes;
+
+}
+
+*/
