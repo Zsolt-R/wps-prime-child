@@ -1,0 +1,103 @@
+/*------------------------------------*\
+    #SLIDEOUT MENU
+\*------------------------------------*/
+.side-nav{
+  display: none;
+  background-color: $color-body;
+  border-left: 1px solid $color-gray-ui;  
+
+  li{
+    list-style: none;
+  }
+
+  .side-nav__list{    
+    margin:  0;
+    padding: 0 halve($inuit-base-spacing-unit);
+    list-style: none;
+    overflow: hidden;
+  }
+  ul{
+    margin:0;
+    padding-left:1em;
+  }
+  a{   
+    color:$color-nav-link;
+    display: block;
+    padding:quarter($inuit-base-spacing-unit) halve($inuit-base-spacing-unit);
+    line-height:$inuit-base-spacing-unit;
+    text-decoration: none;
+  }
+  ul ul{
+    padding-left:quarter($inuit-base-spacing-unit);
+  }
+
+
+}
+
+
+.slideout-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  width: 200px;
+  border-top: 12px solid $color-body;
+
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  
+
+  .logged-in &{
+    top:46px;
+  }
+}
+
+.slideout-panel {
+  position:relative;
+   z-index: 3;
+}
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+  overflow: hidden;
+}
+
+.slideout-open .slideout-menu {
+  display: block;
+}
+
+.move-side{
+  -webkit-transition: all .30s ease;
+  transition: all .30s ease;
+  
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  transform: translate3d(0px, 0px, 0px); 
+  &.move-side--active{
+      
+  -webkit-transform: translate3d(200px, 0px, 0px);
+  transform: translate3d(200px, 0px, 0px); 
+  }
+
+}
+
+.site-nav__toggler {
+  @include inuit-font-size(14px,1);
+  background-color: transparent;
+  border:1px solid $color-nav-link;
+  color:$color-nav-link;
+  outline: none;
+  display: block;
+  padding:halve($inuit-base-spacing-unit);
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: $brand-round;
+
+
+}
+.nav-icon{
+  line-height:1em; // Optimize line height
+}
+

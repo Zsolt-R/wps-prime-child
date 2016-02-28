@@ -1,0 +1,306 @@
+/*------------------------------------*\
+    #COMPONENTS MAIN NAV TWO
+\*------------------------------------*/
+
+
+/* -------------------------------- 
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+.cd-container {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 768px;
+  margin: 0 auto;
+}
+.cd-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.mt_site-nav__list{
+  margin:0;
+  list-style: none;
+}
+
+/* -------------------------------- 
+
+Main components 
+
+-------------------------------- */
+
+
+.site-header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.menu-is-open .site-header,
+.is-fixed.is-visible{
+  @extend %bg--opaq; 
+}
+
+@include media-query(lap-and-up) {
+  .site-header {
+    background: transparent;
+  }
+}
+
+
+@include media-query(desk) {
+  .site-header {
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .site-header.is-fixed {
+    /* when the user scrolls down, we hide the header right above the viewport */
+    position: fixed;
+    -webkit-transition: -webkit-transform 0.3s;
+    -moz-transition: -moz-transform 0.3s;
+    transition: transform 0.3s;
+  }
+  .site-header.is-visible {
+    /* if the user changes the scrolling direction, we show the header */
+    -webkit-transform: translate3d(0, 100%, 0);
+    -moz-transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    -o-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+.cd-secondary-nav {
+  position: relative;
+  vertical-align: middle;
+  display: none;
+}
+.cd-secondary-nav .mt_site-nav__item {
+  display: inline-block;
+  margin-right: 0.5em;
+}
+.cd-secondary-nav .mt_site-nav__link {
+  display: inline-block;   
+}
+
+.mt_site-nav__link{
+  color: $color-nav-link;
+}
+ .cd-primary-nav .mt_site-nav__link{
+  color: $color-bg-dark-link;
+}
+
+.menu-is-open,
+.is-fixed.is-visible,
+.bg--opaq,
+.bg--dark{
+ 
+  .cd-menu-text{
+    color: $color-bg-dark-link;
+  }
+  .cd-primary-nav-trigger .cd-menu-icon,
+  .cd-primary-nav-trigger .cd-menu-icon::after,
+  .cd-primary-nav-trigger .cd-menu-icon::before{
+    background-color: $color-bg-dark-link;
+  }
+
+  .cd-primary-nav-trigger{
+    color: $color-bg-dark-link;
+    border-color: $color-bg-dark-link;
+  }
+}
+
+@include media-query(lap-and-up) {
+  .cd-secondary-nav {
+    display: inline-block;
+  }
+}
+
+.cd-primary-nav-trigger {  
+  position: relative;
+   @include inuit-font-size(14px,1);
+  border:1px solid $color-nav-link;
+  color:$color-nav-link;
+  outline: none;
+  display: inline-block;
+  padding:halve($inuit-base-spacing-unit);
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: $brand-round;
+  background: none;
+ 
+
+}
+.cd-primary-nav-trigger .cd-menu-text {
+  /* hide the text on small devices */
+  display: none;
+}
+.cd-primary-nav-trigger .cd-menu-icon {
+  /* this span is the central line of the menu icon */
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  width: 18px;
+  height: 2px;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  /* these are the upper and lower lines in the menu icon */
+}
+.cd-primary-nav-trigger .cd-menu-icon::before, .cd-primary-nav-trigger .cd-menu-icon:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: $color-nav-link;
+  right: 0;
+  -webkit-transition: -webkit-transform .3s, top .3s, background-color 0s;
+  -moz-transition: -moz-transform .3s, top .3s, background-color 0s;
+  transition: transform .3s, top .3s, background-color 0s;
+}
+.cd-primary-nav-trigger .cd-menu-icon::before {
+  top: -5px;
+}
+.cd-primary-nav-trigger .cd-menu-icon::after {
+  top: 5px;
+}
+.cd-primary-nav-trigger .cd-menu-icon{
+  background-color: $color-nav-link;
+}
+.menu-is-open .cd-primary-nav-trigger .cd-menu-icon.is-clicked,
+.cd-primary-nav-trigger .cd-menu-icon.is-clicked {
+   @include rgba-background(darken($color-nav-bg,80),0);
+}
+
+.bg--opaq .cd-menu-icon::before,.bg--opaq .cd-menu-icon::after,
+.cd-primary-nav-trigger .cd-menu-icon.is-clicked::before, .cd-primary-nav-trigger .cd-menu-icon.is-clicked::after {
+  background-color: $color-bg-dark-link;
+}
+.cd-primary-nav-trigger .cd-menu-icon.is-clicked::before {
+  top: 0;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+.cd-primary-nav-trigger .cd-menu-icon.is-clicked::after {
+  top: 0;
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+@include media-query(lap-and-up) {
+  .cd-primary-nav-trigger {
+    padding-right: 3em;
+    background-color: transparent;
+
+  }
+  .cd-primary-nav-trigger .cd-menu-text {
+    display: inline-block;
+  }
+  .cd-primary-nav-trigger .cd-menu-icon {
+    left: auto;
+    right: 1em;
+    -webkit-transform: translateX(0) translateY(-50%);
+    -moz-transform: translateX(0) translateY(-50%);
+    -ms-transform: translateX(0) translateY(-50%);
+    -o-transform: translateX(0) translateY(-50%);
+    transform: translateX(0) translateY(-50%);
+  }
+}
+
+.cd-primary-nav {
+  /* by default it's hidden - on top of the viewport */
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  @include rgba-background(darken($color-nav-bg,80),.9);
+  z-index: 2;
+  text-align: center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: auto;
+  /* this fixes the buggy scrolling on webkit browsers - mobile devices only - when overflow property is applied */
+  -webkit-overflow-scrolling: touch;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+.cd-primary-nav .mt_site-nav__item {
+ 
+}
+.cd-primary-nav .mt_site-nav__link {
+  display: inline-block;
+  padding: .4em 1em;
+  border-radius: 0.25em;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
+  transition: background 0.2s;
+}
+.no-touch .cd-primary-nav .mt_site-nav__link:hover {
+  background-color: #e36767;
+}
+.cd-primary-nav .cd-label {
+  color: $color-nav-link;
+  font-weight: 700;
+  @include inuit-font-size(14px,1);
+  margin: 2.4em 0 .8em;
+}
+
+
+.cd-primary-nav.is-visible {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+  .admin-bar &{
+    top: 32px;
+  }
+}
+
+@include media-query(desk) {
+  .cd-primary-nav .mt_site-nav__item {
+    @include inuit-font-size(20px,1);
+  }
+  .cd-primary-nav .cd-label {
+    @include inuit-font-size(16px,1);
+  }
+}

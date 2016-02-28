@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    #PAGE-HEAD
+\*------------------------------------*/
+
+html,.site{
+    background-color: $color-body;
+}
+
+// Adjust logo
+.brand-logo{
+    @include media-query(palm){
+    display: block;
+    max-height:45px;
+    float:left;
+    }
+}
