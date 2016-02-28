@@ -169,6 +169,8 @@ $inuit-enable-table--rows: true;
 @import "project/components.page-head";
 @import "project/components.site-head";
 @import "project/components.site-nav";
+// @import "project/components.main-nav-one";
+// @import "project/components.main-nav-two";
 @import "project/components.pull-quote";
 @import "project/components.lists";
 @import "project/components.box";
@@ -184,6 +186,7 @@ $inuit-enable-table--rows: true;
 @import "project/components.buttons";
 @import "project/components.table";
 @import "project/components.widget";
+@import "project/components.accordion";
 
  /* TRUMPS               HELPERS AND OVERRIDES */
 @import "bower_components/inuit-clearfix/trumps.clearfix";

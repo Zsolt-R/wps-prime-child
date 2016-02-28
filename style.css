@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*------------------------------------*    #PROJECT
 \*------------------------------------*/
 /**
@@ -80,6 +80,10 @@
  *
  * github.com/inuitcss | inuitcss.com
  */
+/*------------------------------------*    #GLOBAL
+\*------------------------------------*/
+/*------------------------------------*    #COLORS
+\*------------------------------------*/
 /* TOOLS                GLOBAL PREPROCESSOR TOOLING */
 /*------------------------------------*    #ALIASES
 \*------------------------------------*/
@@ -575,6 +579,8 @@ ul, ol, dd {
   margin-left: 1.5rem;
 }
 
+/*------------------------------------*    #Generic Layout adjustment
+\*------------------------------------*/
 .layout {
   letter-spacing: -0.41em;
   /* Webkit: collapse white-space between units */
@@ -1527,7 +1533,7 @@ input[type="submit"] {
   text-align: left;
 }
 
-/*------------------------------------*    #WRAPPERS
+/*------------------------------------*    #OBJECTS WRAPPERS
 \*------------------------------------*/
 .wrapper {
   max-width: 1100px;
@@ -1553,11 +1559,12 @@ input[type="submit"] {
 }
 
 /* COMPONENTS           DESIGNED, COMPLETE COMPONENTS */
-/*------------------------------------*    #PAGE-HEAD
+/*------------------------------------*    #COMPONENTS PAGE-HEAD
 \*------------------------------------*/
 .site-header {
-  padding: 24px 0 12px 0;
+  padding: 24px 0;
   margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 @media screen and (max-width: 44.9375em) {
@@ -1567,7 +1574,7 @@ input[type="submit"] {
   }
 }
 
-/*------------------------------------*    #SITE-HEAD
+/*------------------------------------*    #COMPONENTS SITE-HEAD
 \*------------------------------------*/
 .entry-header__entry-title {
   font-size: 22px;
@@ -1591,7 +1598,7 @@ input[type="submit"] {
   }
 }
 
-/*------------------------------------*    #SITE-NAV
+/*------------------------------------*    #COMPONENTS SITE-NAV
 \*------------------------------------*/
 .site-nav {
   text-align: center;
@@ -1612,7 +1619,19 @@ input[type="submit"] {
 }
 
 .site-nav__toggler {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid #2980b9;
+  color: #2980b9;
+  outline: none;
   display: block;
+  border-radius: 3px;
+  padding: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 3px;
   margin: 0 auto;
 }
 
@@ -1725,7 +1744,7 @@ ul ul .site-nav__link {
 }
 
 .site-nav__item--promo {
-  background-color: #f39c12;
+  background-color: #e67e22;
 }
 
 .site-nav__item--promo .site-nav__link {
@@ -1733,10 +1752,29 @@ ul ul .site-nav__link {
 }
 
 .site-nav__item--promo:hover .site-nav__link {
-  background-color: #e08e0b;
+  background-color: #d67118;
 }
 
-/*------------------------------------*    #PULL-QUOTE
+@media screen and (min-width: 45em) {
+  .bg--opaq .site-nav__item > .site-nav__list .site-nav__link {
+    background-color: #424242;
+    background-color: rgba(66, 66, 66, 0.8);
+  }
+}
+
+@media screen and (min-width: 45em) {
+  .bg--dark .site-nav__item > .site-nav__list .site-nav__link {
+    background: #424242;
+  }
+}
+
+.bg--dark .site-nav__toggler,
+.bg--opaq .site-nav__toggler {
+  border-color: #e7f2fa;
+  color: #e7f2fa;
+}
+
+/*------------------------------------*    #COMPONENTS PULL-QUOTE
 \*------------------------------------*/
 .pull-quote {
   font-size: 20px;
@@ -1799,7 +1837,7 @@ ul ul .site-nav__link {
   }
 }
 
-/*------------------------------------*    #STYLED LISTS
+/*------------------------------------*   #COMPONENTS STYLED LISTS
 \*------------------------------------*/
 .list--style > ul {
   list-style: none;
@@ -1877,7 +1915,7 @@ ul ul .site-nav__link {
 }
 
 .list--color-two > ul > li::before {
-  color: #f39c12;
+  color: #e67e22;
 }
 
 .list--color-three > ul > li::before {
@@ -1893,7 +1931,7 @@ ul ul .site-nav__link {
 }
 
 .list--color-six > ul > li::before {
-  color: #F2DBBF;
+  color: #e7f2fa;
 }
 
 /*------------------------------------*    #BOXES
@@ -1938,7 +1976,7 @@ ul ul .site-nav__link {
 }
 
 .band--dark {
-  background-color: #7f8c8d;
+  background-color: #424242;
   color: #f2f2f2;
 }
 
@@ -1946,7 +1984,7 @@ ul ul .site-nav__link {
   color: #f2f2f2;
 }
 
-/*------------------------------------*    #PAGE-MICRO
+/*------------------------------------*    #COMPONENTS PAGE-MICRO
 \*------------------------------------*/
 .page-micro {
   padding: 12px;
@@ -1968,7 +2006,7 @@ ul ul .site-nav__link {
   color: #fff;
 }
 
-/*------------------------------------*    #ICONIC
+/*------------------------------------*    #COMPONENTS COMMENT
 \*------------------------------------*/
 .comment-list {
   margin-left: 0;
@@ -2070,7 +2108,7 @@ span.wpcf7-form-control-wrap {
   color: #888;
 }
 
-/*------------------------------------*    #PAGE CONTENT
+/*------------------------------------*    #COMPONENTS PAGE CONTENT
 \*------------------------------------*/
 .hentry {
   margin-bottom: 24px;
@@ -2091,7 +2129,7 @@ span.wpcf7-form-control-wrap {
   line-height: 1;
 }
 
-/*------------------------------------*    #DIVIDER
+/*------------------------------------*    #COMPONENTS DIVIDER
 \*------------------------------------*/
 .divider {
   border-top: 1px solid rgba(0, 0, 0, 0.2);
@@ -2112,7 +2150,7 @@ span.wpcf7-form-control-wrap {
   border-bottom-style: dotted;
 }
 
-/*------------------------------------*    #GALLERIES
+/*------------------------------------*    #COMPONENTS GALLERIES
 \*------------------------------------*/
 .gallery {
   margin-bottom: 1.5em;
@@ -2152,7 +2190,7 @@ span.wpcf7-form-control-wrap {
   }
 }
 
-/*------------------------------------*    #FULL WIDTH SLIDER
+/*------------------------------------*    #COMPONENTS FULL WIDTH SLIDER
 \*------------------------------------*/
 .swiper-container {
   margin: 0 auto;
@@ -2641,7 +2679,7 @@ span.wpcf7-form-control-wrap {
   }
 }
 
-/*------------------------------------*    #NAV LINKS
+/*------------------------------------*    #COMPONENTS NAV LINKS
 \*------------------------------------*/
 .nav-links {
   padding: 12px 0;
@@ -2676,13 +2714,13 @@ span.wpcf7-form-control-wrap {
 }
 
 .btn--secondary {
-  background-color: #f39c12;
-  border-color: #f39c12;
+  background-color: #e67e22;
+  border-color: #e67e22;
 }
 
 .btn--secondary:hover {
-  background-color: #e08e0b;
-  border-color: #e08e0b;
+  background-color: #d67118;
+  border-color: #d67118;
 }
 
 .btn--tertiary {
@@ -2736,10 +2774,54 @@ table th {
   font-weight: 600;
 }
 
-/*------------------------------------*    #WIDGETS
+/*------------------------------------*    #COMPONENTS WIDGETS
 \*------------------------------------*/
 .widget {
   margin-bottom: 24px;
+}
+
+/*------------------------------------*    #COMPONENTS ACCORDION
+\*------------------------------------*/
+.accordion {
+  padding: 6px 12px;
+  margin-bottom: 6px;
+}
+
+.accordion-title {
+  padding: 6px 0;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.accordion-title i {
+  -webkit-transition: all 0.3s ease;
+  /* Safari */
+  transition: all 0.3s ease;
+}
+
+.accordion-title.open {
+  cursor: default;
+}
+
+.accordion-title.open i {
+  -ms-transform: rotate(90deg);
+  /* IE 9 */
+  -webkit-transform: rotate(90deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(90deg);
+}
+
+.accordion-title:first-child {
+  border: none;
+}
+
+.accordion-content {
+  display: none;
+  margin-bottom: 12px;
+  padding: 6px 0 12px 0;
+  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 0px -1px rgba(255, 255, 255, 0.1);
 }
 
 /* TRUMPS               HELPERS AND OVERRIDES */
@@ -2763,7 +2845,7 @@ table th {
   clear: both;
 }
 
-/*------------------------------------*    #Shadow
+/*------------------------------------*    #COMPONENTS SHADOW
 \*------------------------------------*/
 .z-depth-0,
 .card {
@@ -2841,7 +2923,7 @@ table th {
 }
 
 .card--bg-2 {
-  background-color: #F2DBBF;
+  background-color: #e7f2fa;
 }
 
 /*------------------------------------*    #SHOW-HIDE
@@ -6034,7 +6116,7 @@ img {
   height: auto;
 }
 
-/*------------------------------------*    #ALIGNMENTS
+/*------------------------------------*    #TRUMPS ALIGNMENTS
 \*------------------------------------*/
 .aligncenter {
   margin: 0 auto;
@@ -6136,6 +6218,8 @@ img {
   }
 }
 
+/*------------------------------------*    #COMPONENTS LAYOUT
+\*------------------------------------*/
 .layout--right {
   text-align: right;
 }
@@ -6269,14 +6353,14 @@ img {
 }
 
 .txt--color-tertiary {
-  color: #f39c12;
+  color: #e67e22;
 }
 
 .txt--color-tertiary h1, .txt--color-tertiary h2, .txt--color-tertiary h3, .txt--color-tertiary h4, .txt--color-tertiary h5, .txt--color-tertiary h6, .txt--color-tertiary a {
-  color: #f39c12;
+  color: #e67e22;
 }
 
-/*------------------------------------*    #TRUMP BG-HIGHLIGHTS
+/*------------------------------------*    #TRUMPS BG-HIGHLIGHTS
 \*------------------------------------*/
 .bg--body {
   background-color: #fff;
@@ -6291,44 +6375,53 @@ img {
   color: #f2f2f2;
 }
 
-.bg--dark a {
-  color: #F2DBBF;
-}
-
-.bg--dark h1, .bg--dark h2, .bg--dark h3, .bg--dark h4, .bg--dark h5, .bg--dark h6 {
+.bg--opaq {
+  background-color: #424242;
+  background-color: rgba(66, 66, 66, 0.9);
   color: #f2f2f2;
 }
 
-.bg--opaq {
-  background-color: rgba(0, 0, 0, 0.5);
+.bg--opaq a,
+.bg--dark a {
+  color: #e7f2fa;
+}
+
+.bg--opaq h1, .bg--opaq h2, .bg--opaq h3, .bg--opaq h4, .bg--opaq h5, .bg--opaq h6,
+.bg--dark h1,
+.bg--dark h2,
+.bg--dark h3,
+.bg--dark h4,
+.bg--dark h5,
+.bg--dark h6 {
+  color: #f2f2f2;
 }
 
 .bg--light {
-  background-color: #f1f1f1;
+  background-color: white;
 }
 
 .bg--color-one {
-  background-color: #19703e;
+  background-color: #229955;
 }
 
 .bg--color-two {
-  background-color: #b06f09;
+  background-color: #d67118;
 }
 
 .bg--color-three {
-  background-color: #bf2718;
+  background-color: #e43725;
 }
 
 .bg--color-four {
-  background-color: #1d6fa5;
+  background-color: #258cd1;
 }
 
 .bg--color-five {
-  background-color: #713b87;
+  background-color: #8f4bab;
 }
 
 .bg--color-six {
-  background-color: #e5b77f;
+  background-color: #d2e7f5;
 }
 
 .bg--center {
