@@ -85,6 +85,9 @@ function child_theme_setup() {
   /* Main Navigation adjustments css */
   // add_filter('main_nav_class','theme_main_navigation_extra_class');
 
+  /* Disable WP default gallery style and use our own see: assets/sass/project/_components.galleries.scss */
+  add_filter( 'use_default_gallery_style', '__return_false' );
+
 }
 
 /**
