@@ -128,7 +128,7 @@ function feat_img_content(){
 function header_nav_bg_modifier($classes){  
   global $post;
 
-  if(is_404() || is_single()){ return ; }
+  if(is_404() || is_single() || null === $post){ return ; }
 
   $thumb_id = get_post_thumbnail_id($post->ID) ? get_post_thumbnail_id($post->ID) : '';
 
