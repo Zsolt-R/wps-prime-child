@@ -39,6 +39,6 @@
 
 @include project-generate-classes() {
   .#{$inuit-generate-spacing-alias}--left      {float:left;}
-  .#{$inuit-generate-spacing-alias}--center    {margin:0 auto; display: block; clear: both;}
+  .#{$inuit-generate-spacing-alias}--center    {margin:0 auto; display: block; clear: both;float:none;}
   .#{$inuit-generate-spacing-alias}--right     {float:right;}
 }
