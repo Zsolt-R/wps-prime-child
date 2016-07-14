@@ -3,10 +3,10 @@
 \*------------------------------------*/
 
 .list--style{
-	> ul{
-		list-style: none;
+   > ul{
+      list-style: none;
       margin-bottom: 0;
-	}
+   }
 }
 
 .list--style-one,
@@ -19,13 +19,13 @@
 .list--style-eight,
 .list--style-nine,
 .list--style-ten{
-	> ul > li{
-		&::before{
-			font-family:$brand-ico-family;
-			margin-right:0.4em;
+   > ul > li{
+      &::before{
+         font-family:$brand-ico-family;
+         margin-right:0.4em;
          margin-left: -$inuit-base-spacing-unit;
-		}
-	}
+      }
+   }
 }
 
 .list--style-one > ul > li::before{ content:'\f00c';}
@@ -40,9 +40,9 @@
 .list--style-ten > ul > li::before{ content:'\f055';}
 
 .list--style-lines{
-	> ul > li{
-		border-bottom:1px solid $color-gray-ui;
-	}
+   > ul > li{
+      border-bottom:1px solid $color-gray-ui;
+   }
 }
 
 .list--style-dashes{
