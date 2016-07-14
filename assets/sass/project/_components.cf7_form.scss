@@ -6,7 +6,8 @@ input, select, textarea{
     max-width:100%;  
 }
 
-.cf7ct_widget {
+.cf7ct_widget,
+.wpcf7--full{
 
     input[type="text"],
     input[type="email"],
@@ -92,4 +93,12 @@ span.wpcf7-form-control-wrap {
 
 .wpcf7 .placeheld {
     color: #888;
+}
+
+// Modifiers
+.wpcf7--cta{
+    border: 1px solid $color-gray-ui;
+    background: lighten($color-gray-ui,5);
+    padding: $inuit-base-spacing-unit;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.16),0 1px 5px 0 rgba(0,0,0,0.12);
 }
