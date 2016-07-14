@@ -9,3 +9,12 @@ table{
     }
     width: 100%;
 }
+
+.table--striped{
+	tr:nth-child(even) {
+		background: $color-body; 		
+	}
+	tr:nth-child(odd) {
+		background: lighten($color-gray-ui,5);		
+	}
+}
