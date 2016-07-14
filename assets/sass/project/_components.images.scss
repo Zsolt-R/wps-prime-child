@@ -1,7 +1,19 @@
 /*------------------------------------*\
     #COMPONENTS IMAGES
 \*------------------------------------*/
-
+.wp-caption-text{
+	@include inuit-font-size(14px,none);
+	font-weight: 500;
+	color:darken($color-gray-ui,30);
+	&::before{
+		content:'\f075';
+		font-family: $brand-ico-family;
+		margin: 0 0.5em;
+		color:$color-gray-ui;
+		@include inuit-font-size(12px,none);
+	}
+	margin:5px 0;
+}
 .img--round{
 	border-radius: 50%;
 }
