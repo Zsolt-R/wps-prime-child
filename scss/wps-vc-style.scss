@@ -1,0 +1,83 @@
+/* ==========================================================================
+   INUITCSS
+   ========================================================================== */
+
+
+// Gridlex vars
+$gl-palm:          "screen and (max-width: 44.9375em)";                       // 719px
+$gl-lap:           "screen and (min-width: 45em) and (max-width: 63.9375em)"; // 720px <-> 1023px
+$gl-lap-and-up:    "screen and (min-width: 45em)";                            // 720px
+$gl-portable:      "screen and (max-width: 63.9375em)";                       // 1023px
+$gl-desktop:       "screen and (min-width: 64em)"; 
+
+
+$breakpoints:(
+"palm"       $gl-palm,
+"lap"        $gl-lap,
+"lap-and-up" $gl-lap-and-up,
+"portable"   $gl-portable,
+"desktop"    $gl-desktop
+);
+
+.wps_vc_screen-size .wps_vc_icon{
+	background-image: url('images/width-sprite.png');
+	background-repeat: no-repeat;
+	width:30px;
+	height:25px;
+    display: block;
+    margin: 10px auto;
+}
+.wps_vc_screen-size-_desktop- .wps_vc_icon{
+	background-position: 0 0;
+}
+.wps_vc_screen-size-_lap-and-up- .wps_vc_icon{
+	background-position: 0px -55px;
+}
+.wps_vc_screen-size-_lap- .wps_vc_icon{
+	background-position: 0px -75px;
+}
+.wps_vc_screen-size-_portable- .wps_vc_icon{
+	background-position: 0px -25px;
+}
+.wps_vc_screen-size-_palm- .wps_vc_icon{
+	background-position: 0px -100px;
+}
+
+// SETTINGS
+@import "bower_components/inuitcss/settings/settings.core";
+@import "project/settings/settings.colors";
+@import "project/settings/settings.font-weight";
+@import "project/settings/settings.styled-list";
+@import "project/settings/settings.global";
+
+
+
+
+
+
+
+// TOOLS
+@import "bower_components/inuitcss/tools/tools.rem";
+@import "bower_components/inuitcss/tools/tools.font-size";
+@import "project/tools/tools.contain-text";
+@import "project/tools/tools.media-query-generator";
+@import "project/tools/tools.rgba-background";
+
+// COMPONENTS
+//
+// Build and include your project’s UI Compoments here.
+@import "project/components/components.buttons";
+@import "project/components/components.divider";
+
+
+
+// UTILITIES
+@import "project/utilities/utilities.typography";
+@import "project/utilities/utilities.backgrounds";
+$inuit-font-size-h1:  36px;
+$inuit-font-size-h2:  28px;
+$inuit-font-size-h3:  24px;
+$inuit-font-size-h4:  20px;
+$inuit-font-size-h5:  18px;
+$inuit-font-size-h6:  16px;
+@import "bower_components/inuitcss/utilities/utilities.headings";

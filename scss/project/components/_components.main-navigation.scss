@@ -1,0 +1,181 @@
+/*------------------------------------*\
+    #COMPONENTS MAIN-NAV
+\*------------------------------------*/
+
+/* Shared deskop and mobile */
+/* Reset ul default styling */
+.site-nav__list,
+.site-mobile-nav__list{
+    list-style: none;
+    margin-bottom:0;
+    margin-left:0;
+}
+
+.site-nav__link{
+    text-decoration: none;
+    padding:0.5em;
+    color:$color-nav-link;
+}
+/* End Shared */
+
+
+/* Mobile nav */
+
+.site-nav-mobile{
+    display:none; 
+    text-align: center;
+    position: relative;
+    &>div{
+        position: absolute;
+        width: 100%;        
+        background-color: $color-body;
+        z-index: 99999;
+    }
+    /* Subnav */
+    .site-nav__item > .site-nav__list{
+            @include inuit-font-size(14px);
+        }
+
+    // Site nav toggled
+    &.toggled{
+        display: block;
+    }
+}
+
+.site-nav-mobile,
+.site-mobile-nav-toggler,
+.site-nav-mobile.toggled{
+     @include media-query(lap-and-up) {
+        @include hide();
+    }
+}
+
+/* End Mobile nav */
+
+/* Mobile nav toggle button */
+.site-mobile-nav-toggler{
+    float: right;
+    background-color: transparent;    
+    color:$color-nav-link;
+    border:1px solid currentColor;
+    outline: none;
+    border-radius: $global-radius;
+    padding:round($inuit-global-spacing-unit/2);
+    overflow: hidden;
+    white-space: nowrap;
+    border-radius: $global-radius;
+    margin:0 auto;
+}
+
+.site-mobile-nav-icon {
+  width: 30px;
+  height: 24px;
+  position: relative;
+  margin: 0px auto;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: $global-transition ease-in-out;
+  -moz-transition: $global-transition ease-in-out;
+  -o-transition: $global-transition ease-in-out;
+  transition: $global-transition ease-in-out;
+  cursor: pointer;
+}
+
+.site-mobile-nav-icon span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: $color-nav-link;
+  border-radius: 2px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: $global-transition ease-in-out;
+  -moz-transition: $global-transition ease-in-out;
+  -o-transition: $global-transition ease-in-out;
+  transition: $global-transition ease-in-out;
+}
+
+.site-mobile-nav-icon span:nth-child(1) {
+  top: 0px;
+}
+
+.site-mobile-nav-icon span:nth-child(2),.site-mobile-nav-icon span:nth-child(3) {
+  top: 10px;
+}
+
+.site-mobile-nav-icon span:nth-child(4) {
+  top: 20px;
+}
+
+.mobile-nav-open .site-mobile-nav-icon span:nth-child(1) {
+  top: 10px;
+  width: 0%;
+  left: 50%;
+}
+
+.mobile-nav-open .site-mobile-nav-icon span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.mobile-nav-open .site-mobile-nav-icon span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.mobile-nav-open .site-mobile-nav-icon span:nth-child(4) {
+  top: 10px;
+  width: 0%;
+  left: 50%;
+}
+/* End mobile nav toggle button */
+
+/* Desktop nav */
+.site-nav {        
+    display:none; // Mobile First Default Hidden 
+    float: right;
+    @include media-query(lap-and-up) {
+        display:block;
+    }    
+}
+.site-nav{
+
+    .site-nav__list{
+        position: relative;
+    }    
+
+    /* Subnav */
+    .site-nav__item > .site-nav__list{
+         position: absolute;
+         min-width: 140px;
+         display: none;
+         background-color: $color-white;
+         z-index: 99999;
+         .site-nav__item{
+            display: block;
+            position: relative;        
+            }
+        }
+
+    .site-nav__item:hover > .site-nav__list{
+        display: block;
+    }
+
+    .site-nav__item{
+        display: inline-block;
+        position: relative;        
+    }
+
+}
+/* End Desktop nav */

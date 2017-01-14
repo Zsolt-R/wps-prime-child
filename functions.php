@@ -1,143 +1,105 @@
 <?php
 /**
- *	WPS-Child Theme
+ * WPS Prime 2 functions and definitions.
  *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package WPS_Prime_2
  */
-
-$content_width = 1200; /* pixels */
-
-// Theme options setup global.
-$theme_options = get_option('wps_prime_settings');
-
 
 /***************************************
     # REMOVE PARENT SCRIPTS & STYLES
 ****************************************/
+// Stylesheet is loading automatically from the stylesheet directory
 
-// Remove parent style and add child style.
-add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
-function theme_enqueue_styles() {
+add_action( 'wp_enqueue_scripts', 'remove_scripts', 11 );
+function remove_scripts() {
 
-	// Remove main stylesheet.
-  wp_deregister_style( 'wps_prime-style' );
-
-  // Add child style.
-  wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css');   
-    
+        wp_dequeue_script('site_js'); // Partent main js, here we initiate all the js plugins and custom scripts.
 }
 
 /***************************************
     #ADD CHILD THEME SCRIPTS
 ****************************************/
 
-/**
-
-// Add child Scripts.
-add_action( 'wp_enqueue_scripts', 'add_child_scripts', 20 );
+add_action( 'wp_enqueue_scripts', 'add_child_scripts' );
 function add_child_scripts() {
-
-  // Site scripts init.
-  wp_enqueue_script( 'theme_scripts', get_stylesheet_directory_uri().'/assets/js/min/theme.min.js', array(), '1.0.1', true );
-
+  wp_enqueue_script( 'theme_scripts', get_stylesheet_directory_uri().'/js/min/site.min.js', array(), '1.0.1', true );  
 }
 
-*/
+/*************************************************
+    #DIRECT OVERWRITE PARENT THEME COMPONENTS
+**************************************************/
 
-/**
- * Two build in "hot swap" navigation modules
- *
- * You can activate one of them by uncommnet
- * Also see the style.scss to uncomment the css needed to function 
- *
- * Of course you can also delete them!
- */
+// Overwrite the front end layout element classes, previously set in the parent theme.
+//require get_stylesheet_directory() . '/template-components/theme-front-setup/child-front-layout-setup.php';
 
-// require get_stylesheet_directory() . '/theme-modules/wps-menu-one/wps-module-mo-init.php';
-// require get_stylesheet_directory() . '/theme-modules/wps-menu-two/wps-module-mt-init.php';
+// Overwrite the Template tags defined in the parent theme.
+//require get_stylesheet_directory() . '/template-components/child-front-template-tags.php';
+
+// Overwrite parent navigation
+//require_once( get_stylesheet_directory() .'/template-components/components/child-site-nav.php' );
+
+// Overwrite footer site microcopy
+//require_once( get_stylesheet_directory() .'/template-components/components/theme-footer-site-microcopy.php' );
 
 
+/************************************************************
+#Remove Parent theme components
+
+You can remove any theme component registered in the parent theme and replace it with your 
+custom components.
+Uncomment the component you wisth to remove/replace
+If you want top modify a component functionality/output you can overwrite it's function
+using the pluggable functions method. In this case you don't need to remove it.
+more info: https://codex.wordpress.org/Pluggable_Functions
+
+**************************************************************/
+
+/* Remove parent theme components */
+add_action('after_setup_theme','remove_wps_parent_components',11);
+function remove_wps_parent_components(){
+    // remove_action( 'theme_header', 'layout_header' ); // Remove the theme header (including logo and nav)
+    // remove_action( 'theme_header_left', 'theme_site_logo' ); // Remove main logo
+    // remove_action( 'theme_header_right', 'main_site_nav' ); // Remove  main navigation
+    // remove_action( 'after_header', 'main_site_nav_mobile' ); // Remove mobile navigation
+    // remove_action( 'theme_header_right', 'main_site_mobile_nav_toggler' ); // Remove the mobile navigation toggle button
+    // remove_action( 'after_footer','footer_micro' ); // Remove footer micro-copy
+    // remove_action( 'before_content','theme_page_pre_content' ); // Remove page pre content
+	// remove_action( 'before_footer','theme_global_content_area' ); // Remove Global Content Object 
+}
+
+/**************************************************
+	#Remove footer widget areas / sidebars
+***************************************************/
+
+function remove_some_widgets(){
+    //  Unregister footer sidebars.
+    unregister_sidebar( 'sidebar-footer-4' );
+}
+//add_action( 'widgets_init', 'remove_some_widgets', 11 );
+
+
+/*******************************************
+ * Start Child theme setup
+ *******************************************/
 
 /* Setup Child Theme */
-add_action( 'after_setup_theme', 'child_theme_setup', 11);
+add_action( 'after_setup_theme', 'child_theme_setup');
 
-/**
- * Child theme setup function
- */
+
 function child_theme_setup() {
   
-  /**  
-   * Require settings
-   */
-
-  // Child theme frontent class filter functions.
-  require get_stylesheet_directory() . '/inc/settings/child-front-layout-setup.php';
-
-  // Custom Typography ( Uncomment to use ).
-  // require get_stylesheet_directory() . '/inc/settings/child-admin-typography.php';
-
-  // Custom image sizes ( Uncomment to use ).
-  // require get_stylesheet_directory() . '/inc/settings/child-admin-image-sizes.php';
+  // HOOK CHILD THEME NAVIGATION
+  // First remove / unhook parent main nav 
+  //add_action( 'after_header', 'main_site_nav' );
 
   /**
-   * Add  frontend class filters
+   * Theme custom settings
    */
+  // Custom Typography ( Uncomment to use ).
+  //require get_stylesheet_directory() . '/inc/settings/child-admin-typography.php';
 
-  /* Main Navigation adjustments css */
-  // add_filter('main_nav_class','theme_main_navigation_extra_class');
-
-  /* Disable WP default gallery style and use our own see: assets/sass/project/_components.galleries.scss */
-  add_filter( 'use_default_gallery_style', '__return_false' );
-
+  // Custom image sizes ( Uncomment to use ).
+  //require get_stylesheet_directory() . '/inc/settings/child-admin-image-sizes.php';
 }
-
-/**
-*  Add site page content a backgroud image
-*  unsing page featured image
-*
-*/
-
-// Add page background image.
-//add_action('wp_head','feat_img_content');
-
-// Add nav class
-//add_filter('site_header_class','header_nav_bg_modifier');
-
-
-/**
-* 
-* If has featured image, add it as background to .site-content ON PAGES
-*
-
-function feat_img_content(){
-  global $post;
-
-  if(is_404() || is_single()){ return; }
-
-  $thumb_id = get_post_thumbnail_id($post->ID) ? get_post_thumbnail_id($post->ID) : '';
-
-  if(!$thumb_id){return;}
-
-  $large_image_url = wp_get_attachment_image_src(  $thumb_id , 'full' );
-  
- 
-  echo '<style type="text/css" media="screen">.site-pre-content{background:url(\''. $large_image_url[0] .'\') center center no-repeat;}.site-header{position:absolute; width: 100%;}</style>';
-
-}
-
-
-function header_nav_bg_modifier($classes){  
-  global $post;
-
-  if(is_404() || is_single() || null === $post){ return ; }
-
-  $thumb_id = get_post_thumbnail_id($post->ID) ? get_post_thumbnail_id($post->ID) : '';
-
-  if(!$thumb_id){return;}
-
-  $classes[] = 'bg--opaq'; 
-
-  return $classes;
-
-}
-
-*/
