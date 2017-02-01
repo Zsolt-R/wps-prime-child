@@ -41,4 +41,8 @@
 .gallery-icon{
         margin:0.2em;
 }
-.gallery-caption {}
+
+.gallery-caption{   
+    @include inuit-font-size(14px,1.2);    
+    padding:$inuit-global-spacing-unit-small;
+}
