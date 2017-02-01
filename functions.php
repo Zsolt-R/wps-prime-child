@@ -43,6 +43,9 @@ function add_child_scripts() {
 // Overwrite footer site microcopy
 //require_once( get_stylesheet_directory() .'/template-components/components/theme-footer-site-microcopy.php' );
 
+// Child theme fine tune
+require get_stylesheet_directory() . '/inc/settings/child-theme-fine-tune.php';
+
 
 /************************************************************
 #Remove Parent theme components
