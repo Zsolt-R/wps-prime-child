@@ -13,7 +13,7 @@
  */
 function main_site_nav() {
 	echo '<nav id="site-nav"'. main_nav_class() .' role="navigation" data-ui-component="site-main-nav">';
-	wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'site-nav__list', 'walker' => new Theme_Menu_Object) ) );
+	wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'site-nav__list', 'container_class'=>'site-nav__menu-container', 'walker' => new Theme_Menu_Object) ) );
 	echo '</nav><!-- #site-nav -->';
 }
 
@@ -24,7 +24,7 @@ function main_site_nav() {
  */
 function main_site_nav_mobile() {
 	echo '<nav id="site-mobile-nav"'. main_mobile_nav_class() .' role="navigation-mobile" data-ui-component="site-main-nav-mobile">';
-	wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'site-mobile-nav__list', 'walker' => new Theme_Menu_Object() ) );
+	wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'site-mobile-nav__list',  'container_class'=>'site-nav-mobile__menu-container', 'walker' => new Theme_Menu_Object() ) );
 	echo '</nav><!-- #site-mobile-nav -->';
 }
 

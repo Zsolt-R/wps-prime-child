@@ -16,6 +16,8 @@
     padding:0.5em;
     color:$color-nav-link;
     display:block;
+    word-break: normal;
+    word-wrap: normal;
 }
 /* End Shared */
 
@@ -26,7 +28,7 @@
     display:none; 
     text-align: center;
     position: relative;
-    &>div{
+    .site-nav-mobile__menu-container{
         position: absolute;
         width: 100%;        
         background-color: $color-body;
