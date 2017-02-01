@@ -19,17 +19,7 @@
 }
 
 .form-submit{
-    .submit{
-        display: inline-block; /* [1] */
-        vertical-align: middle; /* [2] */
-        font: inherit; /* [3] */
-        text-align: center; /* [4] */
-        margin: 0; /* [4] */
-        cursor: pointer; /* [5] */
-         padding: inuit-rem($inuit-global-spacing-unit-tiny) inuit-rem($inuit-global-spacing-unit-small);
-        transition: $global-transition;
-        border-radius: $global-radius;
-    }
+
 }
 .comment-form__label{
    
@@ -37,5 +27,15 @@
 .comment-form__field{
     display:block;
     width:100%;
-    @extend %u-form-adjust;
+}
+
+.comment-reply-link{
+	@include inuit-font-size(14px,1);
+	font-weight: 600;
+}
+
+
+.bypostauthor{
+    border-left:2px solid $color-gray-ui;
+    padding-left: $inuit-global-spacing-unit-small;
 }
