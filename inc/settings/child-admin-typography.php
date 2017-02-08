@@ -5,20 +5,11 @@
  * @package wps_prime
  */
 
-/* Add fonts */
-$themeFonts = WpsGenerateThemeFonts::get_instance();
+$childFonts = wps_fonts_setup();
 
+$childFonts->remove_font('Lato');
 
-$themeFonts->remove_font('Lato');
-
-$themeFonts->add_font('Montserrat',
-	'sans-serif',
-	'https://fonts.googleapis.com/css?family=Montserrat:400,700',
-	'font-weight: 400',
-	'font-weight: 700'
-);
-
-$themeFonts->add_font('Lato',
+$childFonts->add_font('Lato',
 	'sans-serif',
 	'https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900',
 	'font-weight: 400',
