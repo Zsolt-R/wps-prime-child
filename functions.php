@@ -65,11 +65,11 @@ function wps_remove_wps_parent_components(){
   // remove_action( 'wps_theme_header', 'wps_layout_header' ); // Remove the theme header (including logo and nav)
   // remove_action( 'wps_theme_header_left', 'wps_theme_site_logo' ); // Remove main logo
   // remove_action( 'wps_theme_header_right', 'wps_main_site_nav' ); // Remove  main navigation
-  // remove_action( 'wps_after_header', 'main_site_nav_mobile' ); // Remove mobile navigation
-  // remove_action( 'wps_theme_header_right', 'main_site_mobile_nav_toggler' ); // Remove the mobile navigation toggle button
-  // remove_action( 'wps_after_footer','footer_micro' ); // Remove footer micro-copy
-  // remove_action( 'wps_before_content','theme_page_pre_content' ); // Remove page pre content
-  // remove_action( 'wps_before_footer','theme_global_content_area' ); // Remove Global Content Object 
+  // remove_action( 'wps_after_header', 'wps_main_site_nav_mobile' ); // Remove mobile navigation
+  // remove_action( 'wps_theme_header_right', 'wps_main_site_mobile_nav_toggler' ); // Remove the mobile navigation toggle button
+  // remove_action( 'wps_after_footer','wps_footer_micro' ); // Remove footer micro-copy
+  // remove_action( 'wps_before_content','wps_theme_page_pre_content' ); // Remove page pre content
+  // remove_action( 'wps_before_footer','wps_theme_global_content_area' ); // Remove Global Content Object 
 }
 
 /**************************************************
