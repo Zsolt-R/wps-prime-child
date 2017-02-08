@@ -22,8 +22,8 @@ function remove_scripts() {
     #ADD CHILD THEME SCRIPTS
 ****************************************/
 
-add_action( 'wp_enqueue_scripts', 'add_child_scripts' );
-function add_child_scripts() {
+add_action( 'wp_enqueue_scripts', 'wps_add_child_scripts' );
+function wps_add_child_scripts() {
   wp_enqueue_script( 'theme_scripts', get_stylesheet_directory_uri().'/js/min/site.min.js', array(), '1.0.1', true );  
 }
 
@@ -60,27 +60,27 @@ more info: https://codex.wordpress.org/Pluggable_Functions
 **************************************************************/
 
 /* Remove parent theme components */
-add_action('after_setup_theme','remove_wps_parent_components',11);
-function remove_wps_parent_components(){
-    // remove_action( 'theme_header', 'layout_header' ); // Remove the theme header (including logo and nav)
-    // remove_action( 'theme_header_left', 'theme_site_logo' ); // Remove main logo
-    // remove_action( 'theme_header_right', 'main_site_nav' ); // Remove  main navigation
-    // remove_action( 'after_header', 'main_site_nav_mobile' ); // Remove mobile navigation
-    // remove_action( 'theme_header_right', 'main_site_mobile_nav_toggler' ); // Remove the mobile navigation toggle button
-    // remove_action( 'after_footer','footer_micro' ); // Remove footer micro-copy
-    // remove_action( 'before_content','theme_page_pre_content' ); // Remove page pre content
-	// remove_action( 'before_footer','theme_global_content_area' ); // Remove Global Content Object 
+add_action('after_setup_theme','wps_remove_wps_parent_components',11);
+function wps_remove_wps_parent_components(){
+  // remove_action( 'wps_theme_header', 'wps_layout_header' ); // Remove the theme header (including logo and nav)
+  // remove_action( 'wps_theme_header_left', 'wps_theme_site_logo' ); // Remove main logo
+  // remove_action( 'wps_theme_header_right', 'wps_main_site_nav' ); // Remove  main navigation
+  // remove_action( 'wps_after_header', 'main_site_nav_mobile' ); // Remove mobile navigation
+  // remove_action( 'wps_theme_header_right', 'main_site_mobile_nav_toggler' ); // Remove the mobile navigation toggle button
+  // remove_action( 'wps_after_footer','footer_micro' ); // Remove footer micro-copy
+  // remove_action( 'wps_before_content','theme_page_pre_content' ); // Remove page pre content
+  // remove_action( 'wps_before_footer','theme_global_content_area' ); // Remove Global Content Object 
 }
 
 /**************************************************
 	#Remove footer widget areas / sidebars
 ***************************************************/
 
-function remove_some_widgets(){
+function wps_remove_some_widgets(){
     //  Unregister footer sidebars.
     unregister_sidebar( 'sidebar-footer-4' );
 }
-//add_action( 'widgets_init', 'remove_some_widgets', 11 );
+//add_action( 'widgets_init', 'wps_remove_some_widgets', 11 );
 
 
 /*******************************************
@@ -88,14 +88,14 @@ function remove_some_widgets(){
  *******************************************/
 
 /* Setup Child Theme */
-add_action( 'after_setup_theme', 'child_theme_setup');
+add_action( 'after_setup_theme', 'wps_child_theme_setup');
 
 
-function child_theme_setup() {
+function wps_child_theme_setup() {
   
   // HOOK CHILD THEME NAVIGATION
   // First remove / unhook parent main nav 
-  //add_action( 'after_header', 'main_site_nav' );
+  //add_action( 'wps_after_header', 'wps_main_site_nav' );
 
   /**
    * Theme custom settings

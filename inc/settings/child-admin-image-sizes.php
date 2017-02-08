@@ -11,7 +11,7 @@
 add_image_size( 'wps_child_medium_large', 664, 400, array( 'center', 'center' ) );
 
 // Show at insertion.
-add_filter( 'image_size_names_choose', 'child_custom_image_sizes_choose' );
+add_filter( 'image_size_names_choose', 'wps_child_custom_image_sizes_choose' );
 
 /**
  * Add image sizes to content insert image size list
@@ -21,7 +21,7 @@ add_filter( 'image_size_names_choose', 'child_custom_image_sizes_choose' );
  */
 
 
-function child_custom_image_sizes_choose( $sizes ) {
+function wps_child_custom_image_sizes_choose( $sizes ) {
 	$custom_sizes = array(
 
 		'wps_child_medium_large' => 'WPS Medium Large',
@@ -33,8 +33,8 @@ function child_custom_image_sizes_choose( $sizes ) {
 
 
 //ref: https://wordpress.org/support/topic/new-image-size-medium_large-not-generated-on-upload
-add_action( 'after_switch_theme', 'enforce_image_size_options' );
-function enforce_image_size_options() {
+add_action( 'after_switch_theme', 'wps_enforce_image_size_options' );
+function wps_enforce_image_size_options() {
 	//update_option( 'thumbnail_size_w', 155 );
 	//update_option( 'thumbnail_size_h', 0 );
 	//update_option( 'thumbnail_crop', 0 );

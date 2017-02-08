@@ -11,7 +11,7 @@
  * @param array $classes Storred css classes.
  * @return array
  */
-function header_layout_left( $classes ) {
+function wps_header_layout_left( $classes ) {
 
 	$classes[] = 'col';
 	$classes[] = '_palm-8';
@@ -26,7 +26,7 @@ function header_layout_left( $classes ) {
  * @param array $classes Storred css classes.
  * @return array
  */
-function header_layout_right( $classes ) {
+function wps_header_layout_right( $classes ) {
 
 	$classes[] = 'col';
 	$classes[] = '_palm-4';
@@ -40,7 +40,7 @@ function header_layout_right( $classes ) {
  * @param array $classes Storred css classes.
  * @return array
  */
-function main_layout( $classes ) {
+function wps_main_layout( $classes ) {
 	global $wp_query, $wpdb;
 
 	// Element to be removed.
@@ -75,7 +75,7 @@ function main_layout( $classes ) {
 /**
  * Add page wrapper html element
  */
-function page_top() {
+function wps_page_top() {
 
 	global $wp_query, $wpdb;
 
@@ -93,7 +93,7 @@ function page_top() {
 /**
  * Add page wrapper html element
  */
-function page_end() {
+function wps_page_end() {
 
 	global $wp_query, $wpdb;
 

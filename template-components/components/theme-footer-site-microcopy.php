@@ -10,7 +10,7 @@
 /**
  * Site footer closing data line
  */
-function footer_micro() {
+function wps_footer_micro() {
 
 	$date = wps_get_theme_option( 'company_launch_date' ) ? wps_get_theme_option( 'company_launch_date' ) : '';
 

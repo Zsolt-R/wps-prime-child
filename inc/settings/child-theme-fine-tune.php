@@ -1,6 +1,6 @@
 <?php
 
-function customize_comment_form_text_area( $args ) {
+function wps_customize_comment_form_text_area( $args ) {
     $args['comment_field'] = '<p class="comment-form-comment"><label for="comment" class="comment-form__label">' . __( 'Comment', 'wps-prime' ) . '</label><textarea id="comment" class="comment-form__field" name="comment" placeholder="' . __( 'Your Feedback Is Appreciated', 'wps-prime' ) . '"cols="45" rows="5" aria-required="true"></textarea></p>';
     return $args;
 }
