@@ -12,9 +12,8 @@
 ****************************************/
 // Stylesheet is loading automatically from the stylesheet directory
 
-add_action( 'wp_enqueue_scripts', 'remove_scripts', 11 );
-function remove_scripts() {
-
+add_action( 'wp_enqueue_scripts', 'wps_remove_scripts', 11 );
+function wps_remove_scripts() {
         wp_dequeue_script('site_js'); // Partent main js, here we initiate all the js plugins and custom scripts.
 }
 
