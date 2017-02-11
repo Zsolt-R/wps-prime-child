@@ -220,6 +220,13 @@
 .c-button--full {
   width: 100%; }
 
+/** Button Icon **/
+.c-button__ico--end {
+  margin-left: 0.752em; }
+
+.c-button__ico--start {
+  margin-right: 0.752em; }
+
 /*------------------------------------*\
     #COMPONENTS DIVIDER
 \*------------------------------------*/
