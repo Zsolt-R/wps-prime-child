@@ -247,82 +247,175 @@
   border-bottom-style: dotted; }
 
 /*------------------------------------*\
-    #TRUMPS TYPOGRAPHY
+    #COMPONENT MODIFIERS
 \*------------------------------------*/
-.u-text-normal {
-  font-weight: 300; }
+.ico {
+  text-align: center;
+  display: inline-block; }
 
-.u-text-thinner {
-  font-weight: 100; }
-
-.u-text-thin {
-  font-weight: 200; }
-
-.u-text-bold {
-  font-weight: 600; }
-
-.u-text-bolder {
-  font-weight: 900; }
-
-.u-text-center {
+.ico-wrap--center {
   text-align: center; }
 
-.u-text-right {
-  text-align: right; }
-
-.u-text-left {
-  text-align: left; }
-
-.u-text-color-invert {
-  color: #fff; }
-  .u-text-color-invert h1, .u-text-color-invert h2, .u-text-color-invert h3, .u-text-color-invert h4, .u-text-color-invert h5, .u-text-color-invert h6, .u-text-color-invert a {
-    color: #fff; }
-
-.u-text-color-light {
-  color: #ddd; }
-  .u-text-color-light h1, .u-text-color-light h2, .u-text-color-light h3, .u-text-color-light h4, .u-text-color-light h5, .u-text-color-light h6, .u-text-color-light a {
-    color: #ddd; }
-
-.u-text-color-primary {
-  color: #3498db; }
-  .u-text-color-primary h1, .u-text-color-primary h2, .u-text-color-primary h3, .u-text-color-primary h4, .u-text-color-primary h5, .u-text-color-primary h6, .u-text-color-primary a {
-    color: #3498db; }
-
-.u-text-color-secondary {
-  color: #e74c3c; }
-  .u-text-color-secondary h1, .u-text-color-secondary h2, .u-text-color-secondary h3, .u-text-color-secondary h4, .u-text-color-secondary h5, .u-text-color-secondary h6, .u-text-color-secondary a {
-    color: #e74c3c; }
-
-.u-text-color-tertiary {
-  color: #f39c12; }
-  .u-text-color-tertiary h1, .u-text-color-tertiary h2, .u-text-color-tertiary h3, .u-text-color-tertiary h4, .u-text-color-tertiary h5, .u-text-color-tertiary h6, .u-text-color-tertiary a {
-    color: #f39c12; }
-
-/* Text Sizes */
-.u-text-small {
+.ico.ico--sm,
+.ico.ico--sm::after {
   font-size: 12px;
   font-size: 0.75rem;
-  line-height: 2; }
+  line-height: 1; }
 
-.u-text-large {
-  font-size: 28px;
-  font-size: 1.75rem;
-  line-height: 1.71429; }
+.ico.ico--m {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1; }
+
+.ico.ico--l,
+.ico.ico--l::after {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1; }
+
+.ico.ico--xl,
+.ico.ico--xl::after {
+  font-size: 26px;
+  font-size: 1.625rem;
+  line-height: 1; }
   @media screen and (min-width: 45em) {
-    .u-text-large {
-      font-size: 48px;
-      font-size: 3rem;
+    .ico.ico--xl,
+    .ico.ico--xl::after {
+      font-size: 32px;
+      font-size: 2rem;
       line-height: 1; } }
 
-.u-text-huge {
-  font-size: 42px;
-  font-size: 2.625rem;
-  line-height: 1.14286; }
+.ico.ico--xxl,
+.ico.ico--xxl::after {
+  font-size: 52px;
+  font-size: 3.25rem;
+  line-height: 1.38462; }
   @media screen and (min-width: 45em) {
-    .u-text-huge {
-      font-size: 84px;
-      font-size: 5.25rem;
-      line-height: 1.14286; } }
+    .ico.ico--xxl,
+    .ico.ico--xxl::after {
+      font-size: 68px;
+      font-size: 4.25rem;
+      line-height: 1; } }
+
+.ico--color-one {
+  color: #2c3e50; }
+
+.ico--color-two {
+  color: #e74c3c; }
+
+.ico--color-three {
+  color: #f39c12; }
+
+.ico--color-four {
+  color: #3498db; }
+
+.ico--color-five {
+  color: #9b59b6; }
+
+.ico--color-six {
+  color: #27ae60; }
+
+.ico--color-white {
+  color: #fff; }
+
+.wpb_element_wrapper {
+  /*------------------------------------*\
+      #TRUMPS TYPOGRAPHY
+  \*------------------------------------*/
+  /* Text Sizes */
+  /* ==========================================================================
+     #HEADINGS
+     ========================================================================== */
+  /**
+   * Redefine all of our basic heading styles against utility classes so as to
+   * allow for double stranded heading hierarchy, e.g. we semantically need an H2,
+   * but we want it to be sized like an H1:
+   *
+   *   <h2 class="u-h1"></h2>
+   *
+   */ }
+  .wpb_element_wrapper .u-text-normal {
+    font-weight: 300; }
+  .wpb_element_wrapper .u-text-thinner {
+    font-weight: 100; }
+  .wpb_element_wrapper .u-text-thin {
+    font-weight: 200; }
+  .wpb_element_wrapper .u-text-bold {
+    font-weight: 600; }
+  .wpb_element_wrapper .u-text-bolder {
+    font-weight: 900; }
+  .wpb_element_wrapper .u-text-center {
+    text-align: center; }
+  .wpb_element_wrapper .u-text-right {
+    text-align: right; }
+  .wpb_element_wrapper .u-text-left {
+    text-align: left; }
+  .wpb_element_wrapper .u-text-color-invert {
+    color: #fff; }
+    .wpb_element_wrapper .u-text-color-invert h1, .wpb_element_wrapper .u-text-color-invert h2, .wpb_element_wrapper .u-text-color-invert h3, .wpb_element_wrapper .u-text-color-invert h4, .wpb_element_wrapper .u-text-color-invert h5, .wpb_element_wrapper .u-text-color-invert h6, .wpb_element_wrapper .u-text-color-invert a {
+      color: #fff; }
+  .wpb_element_wrapper .u-text-color-light {
+    color: #ddd; }
+    .wpb_element_wrapper .u-text-color-light h1, .wpb_element_wrapper .u-text-color-light h2, .wpb_element_wrapper .u-text-color-light h3, .wpb_element_wrapper .u-text-color-light h4, .wpb_element_wrapper .u-text-color-light h5, .wpb_element_wrapper .u-text-color-light h6, .wpb_element_wrapper .u-text-color-light a {
+      color: #ddd; }
+  .wpb_element_wrapper .u-text-color-primary {
+    color: #3498db; }
+    .wpb_element_wrapper .u-text-color-primary h1, .wpb_element_wrapper .u-text-color-primary h2, .wpb_element_wrapper .u-text-color-primary h3, .wpb_element_wrapper .u-text-color-primary h4, .wpb_element_wrapper .u-text-color-primary h5, .wpb_element_wrapper .u-text-color-primary h6, .wpb_element_wrapper .u-text-color-primary a {
+      color: #3498db; }
+  .wpb_element_wrapper .u-text-color-secondary {
+    color: #e74c3c; }
+    .wpb_element_wrapper .u-text-color-secondary h1, .wpb_element_wrapper .u-text-color-secondary h2, .wpb_element_wrapper .u-text-color-secondary h3, .wpb_element_wrapper .u-text-color-secondary h4, .wpb_element_wrapper .u-text-color-secondary h5, .wpb_element_wrapper .u-text-color-secondary h6, .wpb_element_wrapper .u-text-color-secondary a {
+      color: #e74c3c; }
+  .wpb_element_wrapper .u-text-color-tertiary {
+    color: #f39c12; }
+    .wpb_element_wrapper .u-text-color-tertiary h1, .wpb_element_wrapper .u-text-color-tertiary h2, .wpb_element_wrapper .u-text-color-tertiary h3, .wpb_element_wrapper .u-text-color-tertiary h4, .wpb_element_wrapper .u-text-color-tertiary h5, .wpb_element_wrapper .u-text-color-tertiary h6, .wpb_element_wrapper .u-text-color-tertiary a {
+      color: #f39c12; }
+  .wpb_element_wrapper .u-text-small {
+    font-size: 12px;
+    font-size: 0.75rem;
+    line-height: 2; }
+  .wpb_element_wrapper .u-text-large {
+    font-size: 28px;
+    font-size: 1.75rem;
+    line-height: 1.71429; }
+    @media screen and (min-width: 45em) {
+      .wpb_element_wrapper .u-text-large {
+        font-size: 48px;
+        font-size: 3rem;
+        line-height: 1; } }
+  .wpb_element_wrapper .u-text-huge {
+    font-size: 42px;
+    font-size: 2.625rem;
+    line-height: 1.14286; }
+    @media screen and (min-width: 45em) {
+      .wpb_element_wrapper .u-text-huge {
+        font-size: 84px;
+        font-size: 5.25rem;
+        line-height: 1.14286; } }
+  .wpb_element_wrapper .u-h1 {
+    font-size: 36px !important;
+    font-size: 2.25rem !important;
+    line-height: 1.33333 !important; }
+  .wpb_element_wrapper .u-h2 {
+    font-size: 28px !important;
+    font-size: 1.75rem !important;
+    line-height: 1.71429 !important; }
+  .wpb_element_wrapper .u-h3 {
+    font-size: 24px !important;
+    font-size: 1.5rem !important;
+    line-height: 1 !important; }
+  .wpb_element_wrapper .u-h4 {
+    font-size: 20px !important;
+    font-size: 1.25rem !important;
+    line-height: 1.2 !important; }
+  .wpb_element_wrapper .u-h5 {
+    font-size: 18px !important;
+    font-size: 1.125rem !important;
+    line-height: 1.33333 !important; }
+  .wpb_element_wrapper .u-h6 {
+    font-size: 16px !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important; }
 
 /*------------------------------------*\
     #BG-HIGHLIGHTS
@@ -395,3 +488,5 @@
 
 .u-background-pos-center {
   background-position: center; }
+
+
