@@ -28,8 +28,8 @@ function wps_prime_paging_nav( $type = 'link' ) {
 	if ( 'link' === $type ) {
 
 		$output .= '<nav class="navigation paging-navigation" role="navigation">';
-		$output .= '<h1 class="screen-reader-text">'. esc_html__( 'Posts navigation', 'wps-prime' ) .'</h1>';
-		$output .= '<div class="nav-links">';
+		$output .= '<a class="screen-reader-text" href="#post-navigation">'.esc_html_e( 'Post navigation', 'wps-child-david' ).'</a>';
+		$output .= '<div class="nav-links" id="post-navigation>';
 		$output .= get_next_posts_link() ? '<div class="nav-previous">'. get_next_posts_link( sprintf( esc_html__( '%1$s Older posts', 'wps-prime' ),'<span class="meta-nav">&larr;</span>' ) ).'</div>' : '';
 		$output .= get_previous_posts_link() ? '<div class="nav-previous">'. get_previous_posts_link( sprintf( esc_html__( 'Newer posts %1$s', 'wps-prime' ),'<span class="meta-nav">&rarr;</span>' ) ) .'</div>' : '';
 		$output .= '</div><!-- .nav-links -->';
@@ -42,7 +42,6 @@ function wps_prime_paging_nav( $type = 'link' ) {
 	}
 	echo $output;
 }
-
 
 
 /**
